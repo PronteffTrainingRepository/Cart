@@ -9,11 +9,12 @@ import {
   Dimensions,
   StatusBar,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 import Prop from "./Prop";
 import { AntDesign } from "@expo/vector-icons";
-import { NavigationContainer } from "@react-navigation/native";
 import Details from "./Details";
+
 const ht = Dimensions.get("window").height;
 const wd = Dimensions.get("window").width;
 
@@ -28,6 +29,28 @@ function ShoppingCart({ navigation, route }) {
   const [show, setShow] = useState(false);
 
   var a = [kur, amul, chips, colddrink, maggie, chocolate, frooti];
+
+  const d = route.params;
+
+  useEffect(() => {
+    if (d) {
+      if (d.d == "kurkure") {
+        setKur(0);
+      } else if (d.d == "amul milk") {
+        setAmul(0);
+      } else if (d.d == "uncle chips") {
+        setChips(0);
+      } else if (d.d == "cold drink") {
+        setColdDrink(0);
+      } else if (d.d == "maggi") {
+        setMaggie(0);
+      } else if (d.d == "chocolate") {
+        setChocolate(0);
+      } else if (d.d == "frooti") {
+        setFrooti(0);
+      }
+    }
+  }, []);
 
   return (
     <ScrollView>
@@ -738,7 +761,7 @@ function ShoppingCart({ navigation, route }) {
                       setMaggie(0);
                     },
                   },
-                ],               
+                ]
               );
             }}
             style={{
@@ -875,7 +898,7 @@ function ShoppingCart({ navigation, route }) {
             </Text>
           </TouchableOpacity>
         </View>
-        {/* <Prop name="shubham sharma" /> */}
+        {/* <Prop name="shubham sharma" col="purple" /> */}
         {/* <Prop name="Amit Sharma" /> */}
       </View>
     </ScrollView>

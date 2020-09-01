@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ckickable } from "react-native";
 import ShoppingCart from "./src/ShoppingCart";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -11,9 +11,10 @@ function App() {
   return (
     // <View style={styles.container}>
     //   <ShoppingCart />
+    //initialRouteName="shoppingcart"
     // </View>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="shoppingcart">
+      <Stack.Navigator>
         <Stack.Screen
           name="shoppingcart"
           component={ShoppingCart}
@@ -41,9 +42,10 @@ function App() {
             headerTitleStyle: {
               fontWeight: "bold",
             },
+          
           }}
         />
-        <Stack.Screen name="sample" component={Sample}/>
+        <Stack.Screen name="sample" component={Sample} />
       </Stack.Navigator>
     </NavigationContainer>
   );

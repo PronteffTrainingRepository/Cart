@@ -10,8 +10,7 @@ function Details({ navigation, route }) {
   const { name } = route.params;
   const { quantity } = route.params;
   const { price } = route.params;
-  let hello = name;
-  console.log(hello);
+
   useEffect(() => {
     if (name == "kurkure") {
       setItem(require("../assets/kurkure.jpg"));
@@ -65,7 +64,7 @@ function Details({ navigation, route }) {
         </View>
         <View
           style={{
-            width: wd * 0.3,
+            width: wd * 0.34,
             alignSelf: "flex-end",
             marginRight: wd * 0.025,
             marginBottom: ht * 0.02,
@@ -74,8 +73,10 @@ function Details({ navigation, route }) {
         >
           <TouchableOpacity
             onPress={() => {
-              // navigation.navigate("sample", { d: name });
-              navigation.navigate("shoppingcart");
+              navigation.push("shoppingcart", {
+                d: name,
+              });
+              // navigation.navigate("shoppingcart");
             }}
             style={{
               backgroundColor: "black",
@@ -92,7 +93,7 @@ function Details({ navigation, route }) {
                 marginTop: ht * 0.004,
               }}
             >
-              Go Back
+              Delete from cart
             </Text>
           </TouchableOpacity>
         </View>
