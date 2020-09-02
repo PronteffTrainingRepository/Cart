@@ -7,25 +7,39 @@ const wd = Dimensions.get("window").width;
 
 function Details({ navigation, route }) {
   const [item, setItem] = useState(null);
+  const [quan, SetQuan] = useState(0);
   const { name } = route.params;
-  const { quantity } = route.params;
+  const { quantitykur } = route.params;
+  const { quantityamul } = route.params;
+  const { quantitychips } = route.params;
+  const { quantitycold } = route.params;
+  const { quantitymaggi } = route.params;
+  const { quantitychocolate } = route.params;
+  const { quantityfrooti } = route.params;
   const { price } = route.params;
 
   useEffect(() => {
     if (name == "kurkure") {
       setItem(require("../assets/kurkure.jpg"));
+      SetQuan(quantitykur)
     } else if (name == "amul milk") {
       setItem(require("../assets/amul.jpg"));
+      SetQuan(quantityamul);
     } else if (name == "uncle chips") {
       setItem(require("../assets/uncle.jpeg"));
+      SetQuan(quantitychips);
     } else if (name == "cold drink") {
       setItem(require("../assets/cold.jpg"));
+      SetQuan(quantitycold);
     } else if (name == "maggi") {
       setItem(require("../assets/maggi.jpg"));
+      SetQuan(quantitymaggi);
     } else if (name == "chocolate") {
       setItem(require("../assets/silk.jpeg"));
+      SetQuan(quantitychocolate);
     } else if (name == "frooti") {
       setItem(require("../assets/frooti.jpg"));
+      SetQuan(quantityfrooti);
     }
   }, []);
 
@@ -59,8 +73,8 @@ function Details({ navigation, route }) {
           }}
         >
           <Text style={styles.Text}>Price Of Product : {price} Rs</Text>
-          <Text style={styles.Text}>Quantity Selected : {quantity}</Text>
-          <Text style={styles.Text}>Total Cost : {quantity * price} Rs</Text>
+          <Text style={styles.Text}>Quantity Selected : {quan}</Text>
+          <Text style={styles.Text}>Total Cost : {quan * price} Rs</Text>
         </View>
         <View
           style={{
@@ -75,6 +89,13 @@ function Details({ navigation, route }) {
             onPress={() => {
               navigation.push("shoppingcart", {
                 d: name,
+                quantkur: quantitykur,
+                quantamul: quantityamul,
+                quantchips: quantitychips,
+                quantcold: quantitycold,
+                quantmaggi: quantitymaggi,
+                quantchocolate: quantitychocolate,
+                quantfrooti : quantityfrooti,
               });
               // navigation.navigate("shoppingcart");
             }}

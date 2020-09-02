@@ -31,29 +31,96 @@ function ShoppingCart({ navigation, route }) {
   var a = [kur, amul, chips, colddrink, maggie, chocolate, frooti];
 
   const d = route.params;
-
-  useEffect(() => {
-    if (d) {
-      if (d.d == "kurkure") {
-        setKur(0);
-      } else if (d.d == "amul milk") {
-        setAmul(0);
-      } else if (d.d == "uncle chips") {
-        setChips(0);
-      } else if (d.d == "cold drink") {
-        setColdDrink(0);
-      } else if (d.d == "maggi") {
-        setMaggie(0);
-      } else if (d.d == "chocolate") {
-        setChocolate(0);
-      } else if (d.d == "frooti") {
-        setFrooti(0);
-      }
-    }
-  }, []);
-
+  // useEffect(() => {
+  //   if (d) {
+  //     if (d.d == "kurkure") {
+  //       setKur(d.quantkur);
+  //     } else if (d.d == "amul milk") {
+  //       setAmul(0);
+  //     } else if (d.d == "uncle chips") {
+  //       setChips(d.quantchips);
+  //     } else if (d.d == "cold drink") {
+  //       setColdDrink(d.quantcold);
+  //     } else if (d.d == "maggi") {
+  //       setMaggie(d.quantmaggi);
+  //     } else if (d.d == "chocolate") {
+  //       setChocolate(d.quantchocolate);
+  //     } else if (d.d == "frooti") {
+  //       setFrooti(d.quantfrooti);
+  //     }
+  //   }
+  // }, []);
+  // console.log(d);
+  // useEffect(() => {
+  //   if (d) {
+  //     if (d.d == "kurkure") {
+  //       setKur(0);
+  //     } else if (d.d == "amul milk") {
+  //       setAmul(0);
+  //     } else if (d.d == "uncle chips") {
+  //       setChips(0);
+  //     } else if (d.d == "cold drink") {
+  //       setColdDrink(0);
+  //     } else if (d.d == "maggi") {
+  //       setMaggie(0);
+  //     } else if (d.d == "chocolate") {
+  //       setChocolate(0);
+  //     } else if (d.d == "frooti") {
+  //       setFrooti(0);
+  //     }
+  //   }
+  // }, []);
+  // console.log(d);
   return (
     <ScrollView>
+      {useEffect(() => {
+        if (d) {
+          if (d.d == "kurkure") {
+            setKur(0);
+            alert("KurKure is deleted from the Cart");
+          } else {
+            setKur(d.quantkur);
+          }
+          if (d.d == "amul milk") {
+            setAmul(0);
+            alert("Amul Milk is deleted from the Cart");
+          } else {
+            setAmul(d.quantamul);
+          }
+
+          if (d.d == "uncle chips") {
+            setChips(0);
+            alert("Uncle Chips is deleted from the Cart");
+          } else {
+            setChips(d.quantchips);
+          }
+
+          if (d.d == "cold drink") {
+            setColdDrink(0);
+            alert("Cold Drink is deleted from the Cart");
+          } else {
+            setColdDrink(d.quantcold);
+          }
+          if (d.d == "maggi") {
+            setMaggie(0);
+            alert("Maggi is deleted from the Cart");
+          } else {
+            setMaggie(d.quantmaggi);
+          }
+          if (d.d == "chocolate") {
+            setChocolate(0);
+            alert("Chocolate is deleted from the Cart");
+          } else {
+            setChocolate(d.quantchocolate);
+          }
+          if (d.d == "frooti") {
+            setFrooti(0);
+            alert("Frooti is deleted from the Cart");
+          } else {
+            setFrooti(d.quantfrooti);
+          }
+        }
+      }, [])}
       <StatusBar />
       <View style={styles.container}>
         <View
@@ -140,9 +207,15 @@ function ShoppingCart({ navigation, route }) {
           <View>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("details", {
+                navigation.push("details", {
                   name: "kurkure",
-                  quantity: kur,
+                  quantitykur: kur,
+                  quantityamul: amul,
+                  quantitychips: chips,
+                  quantitycold: colddrink,
+                  quantitymaggi: maggie,
+                  quantitychocolate: chocolate,
+                  quantityfrooti: frooti,
                   price: 10,
                 })
               }
@@ -227,9 +300,15 @@ function ShoppingCart({ navigation, route }) {
           <View>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("details", {
+                navigation.push("details", {
                   name: "amul milk",
-                  quantity: amul,
+                  quantitykur: kur,
+                  quantityamul: amul,
+                  quantitychips: chips,
+                  quantitycold: colddrink,
+                  quantitymaggi: maggie,
+                  quantitychocolate: chocolate,
+                  quantityfrooti: frooti,
                   price: 20,
                 })
               }
@@ -313,9 +392,15 @@ function ShoppingCart({ navigation, route }) {
           <View>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("details", {
+                navigation.push("details", {
                   name: "uncle chips",
-                  quantity: chips,
+                  quantitykur: kur,
+                  quantityamul: amul,
+                  quantitychips: chips,
+                  quantitycold: colddrink,
+                  quantitymaggi: maggie,
+                  quantitychocolate: chocolate,
+                  quantityfrooti: frooti,
                   price: 15,
                 })
               }
@@ -399,9 +484,15 @@ function ShoppingCart({ navigation, route }) {
           <View>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("details", {
+                navigation.push("details", {
                   name: "cold drink",
-                  quantity: colddrink,
+                  quantitykur: kur,
+                  quantityamul: amul,
+                  quantitychips: chips,
+                  quantitycold: colddrink,
+                  quantitymaggi: maggie,
+                  quantitychocolate: chocolate,
+                  quantityfrooti: frooti,
                   price: 20,
                 })
               }
@@ -485,9 +576,15 @@ function ShoppingCart({ navigation, route }) {
           <View>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("details", {
+                navigation.push("details", {
                   name: "maggi",
-                  quantity: maggie,
+                  quantitykur: kur,
+                  quantityamul: amul,
+                  quantitychips: chips,
+                  quantitycold: colddrink,
+                  quantitymaggi: maggie,
+                  quantitychocolate: chocolate,
+                  quantityfrooti: frooti,
                   price: 12,
                 })
               }
@@ -571,9 +668,15 @@ function ShoppingCart({ navigation, route }) {
           <View>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("details", {
+                navigation.push("details", {
                   name: "chocolate",
-                  quantity: chocolate,
+                  quantitykur: kur,
+                  quantityamul: amul,
+                  quantitychips: chips,
+                  quantitycold: colddrink,
+                  quantitymaggi: maggie,
+                  quantitychocolate: chocolate,
+                  quantityfrooti: frooti,
                   price: 40,
                 })
               }
@@ -657,9 +760,15 @@ function ShoppingCart({ navigation, route }) {
           <View>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("details", {
+                navigation.push("details", {
                   name: "frooti",
-                  quantity: frooti,
+                  quantitykur: kur,
+                  quantityamul: amul,
+                  quantitychips: chips,
+                  quantitycold: colddrink,
+                  quantitymaggi: maggie,
+                  quantitychocolate: chocolate,
+                  quantityfrooti: frooti,
                   price: 10,
                 })
               }
